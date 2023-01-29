@@ -8,6 +8,7 @@ export interface FocusLayoutContextType<GRef extends HTMLElement = HTMLElement> 
     $element?: RefObject<GRef>;
     handleChangeHover?: (value: boolean) => void;
     handleChangeStep?: (value: StepLearning) => void;
+    handleSetElement?: (value: GRef) => void;
 }
 
 export interface FocusLayoutProviderProps {

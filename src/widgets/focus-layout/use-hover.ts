@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useFocusLayoutContext } from './context';
 
 export const useHover = <GElement extends HTMLElement>() => {
-    const { handleChangeHover } = useFocusLayoutContext();
+    const { handleChangeHover, step } = useFocusLayoutContext();
     const ref = useRef<GElement>(null);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export const useHover = <GElement extends HTMLElement>() => {
                 node.removeEventListener('mouseout', handleMouseOut);
             };
         }
-    }, [handleChangeHover]);
+    }, [handleChangeHover, step]);
 
     return ref;
 };

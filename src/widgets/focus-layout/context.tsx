@@ -17,13 +17,18 @@ export const useFocusLayoutContext = () => {
 export const FocusLayoutProvider: FC<FocusLayoutProviderProps> = ({ children }) => {
     const [isHover, setIsHover] = useState<boolean>(false);
     const [step, setStep] = useState<StepLearning>('start');
-    const $element = useRef(null);
+    const $element = useRef<HTMLElement | null>(null);
+
+    const handleSetElement = <GElement extends HTMLElement>(value: GElement) => {
+        $element.current = value;
+    };
 
     const contextValue = useMemo(
         () => ({
             $element,
             handleChangeHover: setIsHover,
             handleChangeStep: setStep,
+            handleSetElement,
             isHover,
             step,
         }),

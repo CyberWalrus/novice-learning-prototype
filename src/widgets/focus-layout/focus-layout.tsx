@@ -47,9 +47,14 @@ const FocusLayout: FC<FocusLayoutProps> = () => {
     }
 
     return createPortal(
-        <div className={classes.focusBox}>
+        <div className={classes.focusLayout}>
             <div className={classes.transparentBox} style={{ ...style }} />
-            <div ref={$activeBox} className={classes.test} onClick={handleClick} style={style} />
+            <div
+                ref={$activeBox}
+                className={classes.activeBox}
+                onClick={handleClick}
+                style={style}
+            />
         </div>,
         document.body,
     );

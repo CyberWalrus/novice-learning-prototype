@@ -12,6 +12,7 @@
 
     transition: border-color 0.25s;
 
+    &_hover,
     &:hover {
         border-color: #646cff;
     }

@@ -1,4 +1,4 @@
-.focus-box {
+.focus-layout {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,8 +12,8 @@
 
 .transparent-box {
     position: absolute;
-    top: 5rem;
-    left: 50%;
+    /* stylelint-disable */
+    transform: translate3d(-20px, -20px, 0);
 
     padding: 20px;
 
@@ -22,7 +22,7 @@
     box-shadow: 0px 0px 0px calc(100vw + 100vh) rgba(0, 0, 0, 0.4);
 }
 
-.test {
+.active-box {
     position: absolute;
     top: 40px;
     z-index: 2;

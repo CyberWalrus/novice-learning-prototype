@@ -10,12 +10,15 @@ import classes from './start-popup.module.scss';
 const StartPopup: FC = () => {
     const { step, handleChangeStep } = useFocusLayoutContext();
 
+    const isHidden = step !== 'start' && step !== 'end';
+
     const text = step === 'start' ? 'Start' : 'Retry';
 
     const handleClick = () => {
         handleChangeStep?.(1);
     };
-    if (step !== 'start' && step !== 'end') {
+
+    if (isHidden) {
         return null;
     }
 

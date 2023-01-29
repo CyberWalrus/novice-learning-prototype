@@ -44,7 +44,7 @@ const FocusLayout: FC<FocusLayoutProps> = () => {
         return () => {
             document.body.style.overflow = 'unset';
         };
-    }, []);
+    }, [isHidden]);
 
     if (isHidden) {
         return null;

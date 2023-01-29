@@ -1,5 +1,5 @@
 .focus-layout {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -17,7 +17,7 @@
 
     background-color: transparent;
     border-radius: 2rem;
-    box-shadow: 0px 0px 0px calc(100vw + 100vh) rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 0px calc(600vw + 600vh) rgba(0, 0, 0, 0.4);
     transform: translate3d(-20px, -20px, 0); /* stylelint-disable-line */
 }
 

@@ -24,13 +24,28 @@ const FocusLayout: FC<FocusLayoutProps> = () => {
     };
 
     useEffect(() => {
+        const handleChangeStyle = () => {
+            if ($element?.current) {
+                $element?.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                });
+
+                setStyle({
+                    borderRadius: $element.current.style.borderRadius,
+                    height: $element.current.offsetHeight,
+                    left: $element.current.offsetLeft,
+                    top: $element.current.offsetTop,
+                    width: $element.current.clientWidth,
+                });
+            }
+        };
+
         if ($element?.current) {
-            setStyle({
-                height: $element.current.offsetHeight,
-                left: $element.current.offsetLeft,
-                top: $element.current.offsetTop,
-                width: $element.current.clientWidth,
-            });
+            handleChangeStyle();
+            window.addEventListener('resize', handleChangeStyle);
+
+            return () => window.removeEventListener('resize', handleChangeStyle);
         }
     }, [$element, step]);
 

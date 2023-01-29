@@ -54,7 +54,7 @@ const Home = () => {
                 isHover={isHoverFirst}
                 onClick={handleClickFirstStep}
             >
-                1 Step
+                First Step
             </Button>
             <Button
                 ref={$secondStep}
@@ -62,7 +62,7 @@ const Home = () => {
                 isHover={isHoverSecond}
                 onClick={handleClickSecondStep}
             >
-                2 Step
+                Second Step
             </Button>
             <Button
                 ref={$thirdStep}
@@ -70,7 +70,7 @@ const Home = () => {
                 isHover={isHoverThird}
                 onClick={handleClickThirdStep}
             >
-                3 Step
+                End
             </Button>
         </div>
     );

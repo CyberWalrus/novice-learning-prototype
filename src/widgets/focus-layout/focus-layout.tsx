@@ -11,12 +11,16 @@ import classes from './focus-layout.module.scss';
 const FocusLayout: FC<FocusLayoutProps> = () => {
     const $activeBox = useHover<HTMLDivElement>();
     const [style, setStyle] = useState<CSSProperties>();
-    const { step, $element } = useFocusLayoutContext();
+    const { step, $element, handleChangeStep } = useFocusLayoutContext();
 
     const isHidden = step === 'start' || step === 'end';
 
     const handleClick = () => {
         $element?.current?.click();
+    };
+
+    const handleEnd = () => {
+        handleChangeStep?.('end');
     };
 
     useEffect(() => {
@@ -55,6 +59,9 @@ const FocusLayout: FC<FocusLayoutProps> = () => {
                 onClick={handleClick}
                 style={style}
             />
+            <button className={classes.close} onClick={handleEnd} type="button">
+                Close
+            </button>
         </div>,
         document.body,
     );

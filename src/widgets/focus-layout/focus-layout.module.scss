@@ -12,24 +12,32 @@
 
 .transparent-box {
     position: absolute;
-    /* stylelint-disable */
-    transform: translate3d(-20px, -20px, 0);
 
     padding: 20px;
 
     background-color: transparent;
     border-radius: 2rem;
     box-shadow: 0px 0px 0px calc(100vw + 100vh) rgba(0, 0, 0, 0.4);
+    transform: translate3d(-20px, -20px, 0); /* stylelint-disable-line */
 }
 
 .active-box {
     position: absolute;
-    top: 40px;
     z-index: 2;
 
-    width: 20px;
-    height: 20px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+
+    color: rgb(254, 254, 254);
+    font-size: 140%;
 
     background-color: transparent;
-    opacity: 0.5;
+    border: 0;
 }

@@ -2,10 +2,14 @@
     color-scheme: light dark;
 
     --color_text: rgba(255, 255, 255, 0.87);
-    --color_background: #242424;
+    --color_background: #3c3c3c;
+    --color_button: #1a1a1a;
+    --color_button-border: #646cff;
 
     @media (prefers-color-scheme: light) {
         --color_text: #213547;
         --color_background: #ffffff;
+        --color_button: #a6a6a6;
+        --color_button-border: #242aa0;
     }
 }

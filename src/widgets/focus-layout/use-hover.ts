@@ -7,6 +7,7 @@ export const useHover = <GElement extends HTMLElement>() => {
     const ref = useRef<GElement>(null);
 
     useEffect(() => {
+        handleChangeHover?.(false);
         const handleMouseOver = () => handleChangeHover?.(true);
         const handleMouseOut = () => handleChangeHover?.(false);
 

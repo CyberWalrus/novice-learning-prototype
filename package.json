@@ -1,11 +1,11 @@
 {
-    "name": "vite-project",
+    "name": "novice-learning-prototype",
     "private": true,
-    "version": "0.0.0",
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "start": "vite",
-        "build": "tsc && vite build",
+        "build": "tsc && vite build --base=./",
         "preview": "vite preview",
         "ts:check": "tsc --noEmit",
         "eslint:check": "eslint --max-warnings 0 --ext .jsx,.js,.ts,.tsx src/",

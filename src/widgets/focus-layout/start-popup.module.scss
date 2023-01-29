@@ -1,0 +1,16 @@
+.start-popup {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 80px;
+
+    background-color: rgba(198, 198, 4, 0.35);
+    border-radius: 10px;
+    transform: translateX(-50%);
+}

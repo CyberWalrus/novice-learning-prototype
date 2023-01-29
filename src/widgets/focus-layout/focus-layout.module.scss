@@ -1,0 +1,35 @@
+.focus-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: transparent;
+}
+
+.transparent-box {
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+
+    padding: 20px;
+
+    background-color: transparent;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 0px calc(100vw + 100vh) rgba(0, 0, 0, 0.4);
+}
+
+.test {
+    position: absolute;
+    top: 40px;
+    z-index: 2;
+
+    width: 20px;
+    height: 20px;
+
+    background-color: transparent;
+    opacity: 0.5;
+}

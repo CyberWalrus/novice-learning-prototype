@@ -1,44 +1,78 @@
-import { useState } from 'react';
+import { useEffect, useRef } from 'react';
 
-import reactLogo from '$assets/react.svg';
-import { Icon } from '$components';
+import { Button } from '$components';
+import { useFocusLayoutContext } from '$widgets';
 
 import classes from './styles.module.scss';
 
 const Home = () => {
-    const [count, setCount] = useState(0);
-    const handleClick = () => setCount((prev) => prev + 1);
+    const { handleChangeStep, step, handleSetElement, isHover } = useFocusLayoutContext();
+
+    const $firstStep = useRef<HTMLButtonElement>(null);
+    const $secondStep = useRef<HTMLButtonElement>(null);
+    const $thirdStep = useRef<HTMLButtonElement>(null);
+
+    const isHoverFirst = isHover && step === 1;
+    const isHoverSecond = isHover && step === 2;
+    const isHoverThird = isHover && step === 3;
+
+    const handleClickFirstStep = () => {
+        handleChangeStep?.(2);
+    };
+
+    const handleClickSecondStep = () => {
+        handleChangeStep?.(3);
+    };
+
+    const handleClickThirdStep = () => {
+        handleChangeStep?.('end');
+    };
+
+    useEffect(() => {
+        if (step === 1) {
+            handleSetElement?.($firstStep.current as HTMLElement);
+
+            return;
+        }
+
+        if (step === 2) {
+            handleSetElement?.($secondStep.current as HTMLElement);
+
+            return;
+        }
+
+        if (step === 3) {
+            handleSetElement?.($thirdStep.current as HTMLElement);
+        }
+    }, [handleSetElement, step]);
 
     return (
-        <>
-            <div>
-                <Icon
-                    alt="Vite logo"
-                    href="https://vitejs.dev"
-                    rel="noreferrer"
-                    src="/vite.svg"
-                    target="_blank"
-                />
-                <Icon
-                    alt="React logo"
-                    classNameIcon={classes.react}
-                    href="https://reactjs.org"
-                    rel="noreferrer"
-                    src={reactLogo}
-                    target="_blank"
-                />
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button className={classes.button} onClick={handleClick} type="button">
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-        </>
+        <div className={classes.home}>
+            <Button
+                ref={$firstStep}
+                className={classes.button}
+                isHover={isHoverFirst}
+                onClick={handleClickFirstStep}
+            >
+                First Step
+            </Button>
+            <Button
+                ref={$secondStep}
+                className={classes.button}
+                isHover={isHoverSecond}
+                onClick={handleClickSecondStep}
+            >
+                Second Step
+            </Button>
+            <Button
+                ref={$thirdStep}
+                className={classes.button}
+                isHover={isHoverThird}
+                onClick={handleClickThirdStep}
+            >
+                End
+            </Button>
+        </div>
     );
 };
 

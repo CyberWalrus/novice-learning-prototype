@@ -1,0 +1,43 @@
+.focus-layout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: transparent;
+}
+
+.transparent-box {
+    position: absolute;
+
+    padding: 20px;
+
+    background-color: transparent;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 0px calc(100vw + 100vh) rgba(0, 0, 0, 0.4);
+    transform: translate3d(-20px, -20px, 0); /* stylelint-disable-line */
+}
+
+.active-box {
+    position: absolute;
+    z-index: 2;
+
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+
+    color: rgb(254, 254, 254);
+    font-size: 140%;
+
+    background-color: transparent;
+    border: 0;
+}

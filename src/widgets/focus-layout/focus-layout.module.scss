@@ -13,12 +13,37 @@
 .transparent-box {
     position: absolute;
 
-    padding: 20px;
+    padding: 30px;
 
     background-color: transparent;
-    border-radius: 2rem;
-    box-shadow: 0px 0px 0px calc(600vw + 600vh) rgba(0, 0, 0, 0.4);
-    transform: translate3d(-20px, -20px, 0); /* stylelint-disable-line */
+    border-radius: 4rem;
+    transform: translate3d(-30px, -30px, 0); /* stylelint-disable-line */
+
+    transition: all 0.25s;
+    animation: shadow infinite 2s linear;
+
+    @keyframes shadow {
+        0% {
+            box-shadow: 0px 0px 0px calc(600vw + 600vh) var(--color_shadow),
+                inset 0px 0px 0px 4px var(--color_shadow-alt),
+                inset 0px 0px 0px 2px var(--color_shadow-alt),
+                inset 0px 0px 0px 1px var(--color_shadow-alt);
+        }
+
+        50% {
+            box-shadow: 0px 0px 0px calc(600vw + 600vh) var(--color_shadow),
+                inset 0px 0px 0px 8px var(--color_shadow-alt),
+                inset 0px 0px 0px 4px var(--color_shadow-alt),
+                inset 0px 0px 0px 2px var(--color_shadow-alt);
+        }
+
+        100% {
+            box-shadow: 0px 0px 0px calc(600vw + 600vh) var(--color_shadow),
+                inset 0px 0px 0px 4px var(--color_shadow-alt),
+                inset 0px 0px 0px 2px var(--color_shadow-alt),
+                inset 0px 0px 0px 1px var(--color_shadow-alt);
+        }
+    }
 }
 
 .active-box {

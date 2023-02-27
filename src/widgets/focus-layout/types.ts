@@ -18,3 +18,8 @@ export interface FocusLayoutProviderProps {
 export interface FocusLayoutProps {
     style?: CSSProperties;
 }
+
+export type CustomHTMLElement = HTMLElement & {
+    msRequestFullscreen: () => Promise<void>;
+    webkitRequestFullscreen: () => Promise<void>;
+};

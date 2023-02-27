@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import { Button } from '$components';
 
 import { useFocusLayoutContext } from './context';
-import { requestFullscreen } from './helpers';
+import type { CustomHTMLElement } from './types';
 
 import classes from './start-popup.module.scss';
 
@@ -16,8 +16,16 @@ const StartPopup: FC = () => {
     const text = step === 'start' ? 'Start' : 'Retry';
 
     const handleClick = () => {
-        // eslint-disable-next-line no-console
-        requestFullscreen().catch(console.error);
+        const $html = document.documentElement as unknown as CustomHTMLElement;
+
+        if ($html.requestFullscreen) {
+            $html.requestFullscreen();
+        } else if ($html.webkitRequestFullscreen) {
+            $html.webkitRequestFullscreen();
+        } else if ($html.msRequestFullscreen) {
+            $html.msRequestFullscreen();
+        }
+
         handleChangeStep?.(1);
     };
 

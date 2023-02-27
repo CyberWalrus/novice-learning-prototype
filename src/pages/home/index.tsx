@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react';
 import { Button } from '$components';
 import { useFocusLayoutContext } from '$widgets';
 
+import type { CustomHTMLElement } from './types';
+
 import classes from './styles.module.scss';
 
 const Home = () => {
@@ -45,6 +47,23 @@ const Home = () => {
             handleSetElement?.($thirdStep.current as HTMLElement);
         }
     }, [handleSetElement, step]);
+
+    useEffect(() => {
+        const handleFullscreen = async () => {
+            const $html = document.documentElement as CustomHTMLElement;
+
+            if ($html.requestFullscreen) {
+                await $html.requestFullscreen();
+            } else if ($html.webkitRequestFullscreen) {
+                await $html.webkitRequestFullscreen();
+            } else if ($html.msRequestFullscreen) {
+                await $html.msRequestFullscreen();
+            }
+        };
+
+        // eslint-disable-next-line no-console
+        handleFullscreen().catch(console.error);
+    }, []);
 
     return (
         <div className={classes.home}>
